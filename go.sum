@@ -97,6 +97,16 @@ github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKe
 github.com/jhump/protoreflect v1.6.0/go.mod h1:eaTn3RZAmMBcV0fifFvlm6VHNz3wSkYyXYWUh7ymB74=
 github.com/kamilturek/intranet v0.0.0-20220522121844-d22ee1edbb4e h1:fYpm796Nyse6j/M4e/yglMgSi7WQOxx1r2CEQ10KV4M=
 github.com/kamilturek/intranet v0.0.0-20220522121844-d22ee1edbb4e/go.mod h1:cgXCnNwb/zMHCJqS6Q3Zp/76NBvdy8Zja9ExfkachUA=
+github.com/kamilturek/intranet v0.0.0-20220618094912-8128a2c0c53f h1:pe/gcnms64dFWGr6AKcmmRMSFIhc3qSSVj/SLsvaz8o=
+github.com/kamilturek/intranet v0.0.0-20220618094912-8128a2c0c53f/go.mod h1:cgXCnNwb/zMHCJqS6Q3Zp/76NBvdy8Zja9ExfkachUA=
+github.com/kamilturek/intranet v0.0.0-20220618102101-3a7c3daa6211 h1:vsfCG5XoG00QfRXZ3R6x2TE1H91JNIuCjsG92s4UjaA=
+github.com/kamilturek/intranet v0.0.0-20220618102101-3a7c3daa6211/go.mod h1:cgXCnNwb/zMHCJqS6Q3Zp/76NBvdy8Zja9ExfkachUA=
+github.com/kamilturek/intranet v0.0.0-20220618103819-e89e99476181 h1:PG4ytUIEbH97QqLqs77PE7SLLUiffVB+ctJrkIERJrE=
+github.com/kamilturek/intranet v0.0.0-20220618103819-e89e99476181/go.mod h1:cgXCnNwb/zMHCJqS6Q3Zp/76NBvdy8Zja9ExfkachUA=
+github.com/kamilturek/intranet v0.0.0-20220618103938-11f528b8dd3a h1:Rvnbw1buf+Cb05MGm1eH26mwG25RUbGjAZ9BkTPrzbM=
+github.com/kamilturek/intranet v0.0.0-20220618103938-11f528b8dd3a/go.mod h1:cgXCnNwb/zMHCJqS6Q3Zp/76NBvdy8Zja9ExfkachUA=
+github.com/kamilturek/intranet v0.0.0-20220618105452-8df59380d08c h1:Wiikj81lnEceeOumFIF1SHTczSdfiuLFkj6nP+MdkhM=
+github.com/kamilturek/intranet v0.0.0-20220618105452-8df59380d08c/go.mod h1:cgXCnNwb/zMHCJqS6Q3Zp/76NBvdy8Zja9ExfkachUA=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=

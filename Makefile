@@ -1,9 +1,9 @@
 TEST?=$$(go list ./... | grep -v 'vendor')
-HOSTNAME=hashicorp.com
-NAMESPACE=edu
+HOSTNAME=kamilturek.it
+NAMESPACE=tf
 NAME=intranet
 BINARY=terraform-provider-${NAME}
-VERSION=0.1
+VERSION=0.3
 OS_ARCH=darwin_arm64
 
 default: install
