@@ -4,7 +4,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
-	intranet "github.com/kamilturek/terraform-provider-intranet/intranet"
+	"github.com/kamilturek/terraform-provider-intranet/intranet"
 )
 
 func main() {
