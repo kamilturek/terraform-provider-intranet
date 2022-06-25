@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 	"github.com/kamilturek/intranet"
 )
 
@@ -21,8 +22,9 @@ func resourceHourEntry() *schema.Resource {
 				Required: true,
 			},
 			"description": {
-				Type:     schema.TypeString,
-				Optional: true,
+				Type:         schema.TypeString,
+				Required:     true,
+				ValidateFunc: validation.StringIsNotEmpty,
 			},
 			"project_id": {
 				Type:     schema.TypeInt,
@@ -37,8 +39,9 @@ func resourceHourEntry() *schema.Resource {
 				Optional: true,
 			},
 			"time": {
-				Type:     schema.TypeFloat,
-				Required: true,
+				Type:         schema.TypeFloat,
+				Required:     true,
+				ValidateFunc: validation.FloatAtLeast(0),
 			},
 		},
 	}
@@ -48,13 +51,10 @@ func resourceHourEntryCreate(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*intranet.Client)
 
 	input := &intranet.CreateHourEntryInput{
-		Date:      d.Get("date").(string),
-		ProjectID: d.Get("project_id").(int),
-		Time:      d.Get("time").(float64),
-	}
-
-	if v, ok := d.GetOk("description"); ok {
-		input.Description = v.(string)
+		Date:        d.Get("date").(string),
+		Description: d.Get("description").(string),
+		ProjectID:   d.Get("project_id").(int),
+		Time:        d.Get("time").(float64),
 	}
 
 	if v, ok := d.GetOk("ticket_id"); ok {
@@ -62,7 +62,6 @@ func resourceHourEntryCreate(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	output, err := client.CreateHourEntry(input)
-
 	if err != nil {
 		return fmt.Errorf("error creating hour entry: %w", err)
 	}
@@ -81,7 +80,6 @@ func resourceHourEntryRead(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	output, err := client.GetHourEntries(input)
-
 	if err != nil {
 		return fmt.Errorf("error listing hour entries")
 	}
@@ -134,7 +132,6 @@ func resourceHourEntryUpdate(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	_, err := client.UpdateHourEntry(input)
-
 	if err != nil {
 		return fmt.Errorf("error updating hour entry: %w", err)
 	}
@@ -150,7 +147,6 @@ func resourceHourEntryDelete(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	err := client.DeleteHourEntry(input)
-
 	if err != nil {
 		return fmt.Errorf("error deleting hour entry: %w", err)
 	}

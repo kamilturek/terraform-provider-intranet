@@ -1,6 +1,8 @@
 package intranet
 
 import (
+	"fmt"
+
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/kamilturek/intranet"
 )
@@ -24,6 +26,10 @@ func Provider() *schema.Provider {
 
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	sessionId := d.Get("session_id").(string)
-	c := intranet.NewClient(sessionId)
-	return c, nil
+
+	if sessionId == "" {
+		return nil, fmt.Errorf("INTRANET_SESSION_ID must be set")
+	}
+
+	return intranet.NewClient(sessionId), nil
 }
