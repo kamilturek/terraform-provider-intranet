@@ -3,7 +3,7 @@ HOSTNAME=kamilturek.it
 NAMESPACE=tf
 NAME=intranet
 BINARY=terraform-provider-${NAME}
-VERSION=0.3
+VERSION=0.1
 OS_ARCH=darwin_arm64
 
 default: install
