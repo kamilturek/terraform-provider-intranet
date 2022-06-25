@@ -8,7 +8,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
-	"github.com/kamilturek/intranet"
+	"github.com/kamilturek/intranet-go"
 	"github.com/kamilturek/terraform-provider-intranet/intranet/acctest"
 )
 

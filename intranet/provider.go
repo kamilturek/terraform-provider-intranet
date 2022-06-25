@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/kamilturek/intranet"
+	"github.com/kamilturek/intranet-go"
 )
 
 func Provider() *schema.Provider {

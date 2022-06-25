@@ -6,7 +6,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	"github.com/kamilturek/intranet"
+	"github.com/kamilturek/intranet-go"
 )
 
 func resourceHourEntry() *schema.Resource {
