@@ -20,6 +20,7 @@ func init() {
 	})
 }
 
+// I'd be careful with running that on your account 😅
 func sweepHourEntries(r string) error {
 	client, err := sweep.SharedClient()
 	if err != nil {
