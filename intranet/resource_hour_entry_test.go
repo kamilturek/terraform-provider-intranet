@@ -10,7 +10,44 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 	"github.com/kamilturek/intranet-go"
 	"github.com/kamilturek/terraform-provider-intranet/intranet/acctest"
+	"github.com/kamilturek/terraform-provider-intranet/intranet/sweep"
 )
+
+func init() {
+	resource.AddTestSweepers("intranet_hour_entry", &resource.Sweeper{
+		Name: "intranet_hour_entry",
+		F:    sweepHourEntries,
+	})
+}
+
+func sweepHourEntries(r string) error {
+	client, err := sweep.SharedClient()
+	if err != nil {
+		return fmt.Errorf("error getting client: %w", err)
+	}
+
+	input := &intranet.GetHourEntriesInput{
+		Date: time.Now().Format(intranet.DateFormat),
+	}
+
+	output, err := client.GetHourEntries(input)
+	if err != nil {
+		return fmt.Errorf("error listing hour entries: %w", err)
+	}
+
+	for _, e := range output.Entries {
+		input := &intranet.DeleteHourEntryInput{
+			ID: strconv.Itoa(e.ID),
+		}
+
+		err := client.DeleteHourEntry(input)
+		if err != nil {
+			return fmt.Errorf("error deleting hour entry: %w", err)
+		}
+	}
+
+	return nil
+}
 
 func TestAccHourEntry_basic(t *testing.T) {
 	rName := "intranet_hour_entry.test"
@@ -51,7 +88,7 @@ func testAccCheckHourEntryDestroy(date string) resource.TestCheckFunc {
 
 			output, err := client.GetHourEntries(input)
 			if err != nil {
-				return err
+				return fmt.Errorf("error listing hour entries: %w", err)
 			}
 
 			for _, e := range output.Entries {
@@ -69,11 +106,11 @@ func testAccCheckHourEntryExists(resourceName, date string) resource.TestCheckFu
 	return func(s *terraform.State) error {
 		rs, ok := s.RootModule().Resources[resourceName]
 		if !ok {
-			return fmt.Errorf("Not found: %s", resourceName)
+			return fmt.Errorf("not found: %s", resourceName)
 		}
 
 		if rs.Primary.ID == "" {
-			return fmt.Errorf("Hour Entry ID is not set.")
+			return fmt.Errorf("hour entry ID is not set")
 		}
 
 		client := acctest.Provider.Meta().(*intranet.Client)
@@ -93,7 +130,7 @@ func testAccCheckHourEntryExists(resourceName, date string) resource.TestCheckFu
 			}
 		}
 
-		return fmt.Errorf("Hour Entry (%s) not found.", rs.Primary.ID)
+		return fmt.Errorf("hour entry (%s) not found", rs.Primary.ID)
 	}
 }
 

@@ -26,7 +26,6 @@ func Provider() *schema.Provider {
 
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	sessionId := d.Get("session_id").(string)
-
 	if sessionId == "" {
 		return nil, fmt.Errorf("INTRANET_SESSION_ID must be set")
 	}
