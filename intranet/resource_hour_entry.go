@@ -75,11 +75,11 @@ func resourceHourEntryCreate(d *schema.ResourceData, meta interface{}) error {
 func resourceHourEntryRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*intranet.Client)
 
-	input := &intranet.GetHourEntriesInput{
+	input := &intranet.ListHourEntriesInput{
 		Date: d.Get("date").(string),
 	}
 
-	output, err := client.GetHourEntries(input)
+	output, err := client.ListHourEntries(input)
 	if err != nil {
 		return fmt.Errorf("error listing hour entries")
 	}

@@ -27,11 +27,11 @@ func sweepHourEntries(r string) error {
 		return fmt.Errorf("error getting client: %w", err)
 	}
 
-	input := &intranet.GetHourEntriesInput{
+	input := &intranet.ListHourEntriesInput{
 		Date: time.Now().Format(intranet.DateFormat),
 	}
 
-	output, err := client.GetHourEntries(input)
+	output, err := client.ListHourEntries(input)
 	if err != nil {
 		return fmt.Errorf("error listing hour entries: %w", err)
 	}
@@ -83,11 +83,11 @@ func testAccCheckHourEntryDestroy(date string) resource.TestCheckFunc {
 				continue
 			}
 
-			input := &intranet.GetHourEntriesInput{
+			input := &intranet.ListHourEntriesInput{
 				Date: date,
 			}
 
-			output, err := client.GetHourEntries(input)
+			output, err := client.ListHourEntries(input)
 			if err != nil {
 				return fmt.Errorf("error listing hour entries: %w", err)
 			}
@@ -116,11 +116,11 @@ func testAccCheckHourEntryExists(resourceName, date string) resource.TestCheckFu
 
 		client := acctest.Provider.Meta().(*intranet.Client)
 
-		input := &intranet.GetHourEntriesInput{
+		input := &intranet.ListHourEntriesInput{
 			Date: date,
 		}
 
-		output, err := client.GetHourEntries(input)
+		output, err := client.ListHourEntries(input)
 		if err != nil {
 			return err
 		}
