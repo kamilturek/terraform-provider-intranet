@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.17.0
-	github.com/kamilturek/intranet-go v0.0.0-20220625093542-9ef7f40bf1e7
+	github.com/kamilturek/intranet-go v0.2.2
 )
 
 require (

@@ -151,6 +151,8 @@ github.com/kamilturek/intranet-go v0.0.0-20220620202808-567e9048ef86 h1:QjesWZnB
 github.com/kamilturek/intranet-go v0.0.0-20220620202808-567e9048ef86/go.mod h1:ab/jYqzWC88ndB1A1VjbXl8jx+TuUHaV+DkJK8kEaZ8=
 github.com/kamilturek/intranet-go v0.0.0-20220625093542-9ef7f40bf1e7 h1:laoqFrvhH1UJrBC62IK8DUIiOg6X331rlq+Ju/jfZF4=
 github.com/kamilturek/intranet-go v0.0.0-20220625093542-9ef7f40bf1e7/go.mod h1:ab/jYqzWC88ndB1A1VjbXl8jx+TuUHaV+DkJK8kEaZ8=
+github.com/kamilturek/intranet-go v0.2.2 h1:Rgr0m/SognFwIoc3vzxpwQUBbPKBRWPVcq8T1Jv9U4A=
+github.com/kamilturek/intranet-go v0.2.2/go.mod h1:VRhngYLICJCm4Yq1NRv4Oczv1riWCwUCKwvc8fp0GwM=
 github.com/kevinburke/ssh_config v0.0.0-20201106050909-4977a11b4351 h1:DowS9hvgyYSX4TO5NpyC606/Z4SxnNYbT+WX27or6Ck=
 github.com/kevinburke/ssh_config v0.0.0-20201106050909-4977a11b4351/go.mod h1:CT57kijsi8u/K/BOFA39wgDQJ9CxiF4nAY/ojJ6r6mM=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
