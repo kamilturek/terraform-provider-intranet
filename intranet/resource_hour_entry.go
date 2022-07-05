@@ -75,37 +75,25 @@ func resourceHourEntryCreate(d *schema.ResourceData, meta interface{}) error {
 func resourceHourEntryRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*intranet.Client)
 
-	input := &intranet.ListHourEntriesInput{
+	id, err := strconv.Atoi(d.Id())
+	if err != nil {
+		return fmt.Errorf("error converting hour entry ID: %w", err)
+	}
+
+	input := &intranet.GetHourEntryInput{
+		ID:   id,
 		Date: d.Get("date").(string),
 	}
 
-	output, err := client.ListHourEntries(input)
+	output, err := client.GetHourEntry(input)
 	if err != nil {
-		return fmt.Errorf("error listing hour entries")
+		return fmt.Errorf("error listing hour entries: %w", err)
 	}
 
-	var entry *intranet.HourEntry
-
-	for _, e := range output.Entries {
-		if strconv.Itoa(e.ID) == d.Id() {
-			entry = &e
-			break
-		}
-	}
-
-	if entry == nil {
-		if !d.IsNewResource() {
-			d.SetId("")
-			return nil
-		}
-
-		return fmt.Errorf("hour entry not found")
-	}
-
-	d.Set("description", entry.Description)
-	d.Set("time", entry.Time)
-	d.Set("project_id", entry.Project.ID)
-	d.Set("project_name", entry.Project.Name)
+	d.Set("description", output.Description)
+	d.Set("time", output.Time)
+	d.Set("project_id", output.Project.ID)
+	d.Set("project_name", output.Project.Name)
 
 	return nil
 }
