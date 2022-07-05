@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/kamilturek/terraform-provider-intranet/intranet"
+	intranet "github.com/kamilturek/terraform-provider-intranet/internal"
 )
 
 func PreCheck(t *testing.T) {

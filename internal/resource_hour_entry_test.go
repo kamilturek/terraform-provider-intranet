@@ -9,8 +9,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 	"github.com/kamilturek/intranet-go"
-	"github.com/kamilturek/terraform-provider-intranet/intranet/acctest"
-	"github.com/kamilturek/terraform-provider-intranet/intranet/sweep"
+	"github.com/kamilturek/terraform-provider-intranet/internal/acctest"
+	"github.com/kamilturek/terraform-provider-intranet/internal/sweep"
 )
 
 func init() {
