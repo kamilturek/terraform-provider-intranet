@@ -2,7 +2,6 @@ package intranet
 
 import (
 	"fmt"
-	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
@@ -75,13 +74,8 @@ func resourceHourEntryCreate(d *schema.ResourceData, meta interface{}) error {
 func resourceHourEntryRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*intranet.Client)
 
-	id, err := strconv.Atoi(d.Id())
-	if err != nil {
-		return fmt.Errorf("error converting hour entry ID: %w", err)
-	}
-
 	input := &intranet.GetHourEntryInput{
-		ID:   id,
+		ID:   d.Id(),
 		Date: d.Get("date").(string),
 	}
 
