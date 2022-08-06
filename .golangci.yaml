@@ -1,5 +1,35 @@
 run:
-  go: '1.17'
+  go: '1.18'
 linters:
+  enable-all: true
   disable:
+    # other reasons
+    - gci
+    - gochecknoinits
+    - gocritic
+    - golint
     - errcheck
+    - exhaustruct
+    - exhaustivestruct
+    - forcetypeassert
+    - gochecknoglobals
+    - goerr113
+    - nosnakecase
+    - paralleltest
+    - revive
+    - stylecheck
+    - varnamelen
+    - wrapcheck
+
+    # deprecated
+    - ifshort
+    - interfacer
+    - maligned
+    - scopelint
+
+    # disabled due to generics
+    - contextcheck
+    - rowserrcheck
+    - sqlclosecheck
+    - structcheck
+    - wastedassign
