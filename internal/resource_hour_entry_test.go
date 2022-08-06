@@ -15,7 +15,7 @@ func TestAccHourEntry_basic(t *testing.T) {
 	rName := "intranet_hour_entry.test"
 	now := intranet.Date(time.Now())
 
-	resource.Test(t, resource.TestCase{
+	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:     func() { acctest.PreCheck(t) },
 		Providers:    acctest.Providers,
 		CheckDestroy: testAccCheckHourEntryDestroy(now),
@@ -51,7 +51,7 @@ func testAccCheckHourEntryDestroy(date string) resource.TestCheckFunc {
 				},
 			)
 			if err == nil {
-				return fmt.Errorf("hour entry (%s) still exists.", rs.Primary.ID)
+				return fmt.Errorf("hour entry (%s) still exists", rs.Primary.ID)
 			}
 		}
 
