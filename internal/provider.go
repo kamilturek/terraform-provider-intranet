@@ -13,7 +13,7 @@ func Provider() *schema.Provider {
 			"session_id": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				DefaultFunc: schema.EnvDefaultFunc("INTRANET_SESSION_ID", nil),
+				DefaultFunc: schema.EnvDefaultFunc(intranet.SessionIDEnvVar, nil),
 			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
@@ -27,8 +27,10 @@ func Provider() *schema.Provider {
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	sessionId := d.Get("session_id").(string)
 	if sessionId == "" {
-		return nil, fmt.Errorf("INTRANET_SESSION_ID must be set")
+		return nil, fmt.Errorf("%s must be set", intranet.SessionIDEnvVar)
 	}
 
-	return intranet.NewClient(sessionId), nil
+	return intranet.NewClient(
+		intranet.WithSessionID(sessionId),
+	)
 }
