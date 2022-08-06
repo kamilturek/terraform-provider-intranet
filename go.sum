@@ -152,6 +152,10 @@ github.com/jhump/protoreflect v1.6.0 h1:h5jfMVslIg6l29nsMs0D8Wj17RDVdNYti0vDN/PZ
 github.com/jhump/protoreflect v1.6.0/go.mod h1:eaTn3RZAmMBcV0fifFvlm6VHNz3wSkYyXYWUh7ymB74=
 github.com/kamilturek/intranet-go v0.2.2 h1:Rgr0m/SognFwIoc3vzxpwQUBbPKBRWPVcq8T1Jv9U4A=
 github.com/kamilturek/intranet-go v0.2.2/go.mod h1:VRhngYLICJCm4Yq1NRv4Oczv1riWCwUCKwvc8fp0GwM=
+github.com/kamilturek/intranet-go v0.2.3-0.20220806094826-0895fc40b279 h1:EMmLcr4VaKLlQnLbjBR84OdeWcKDzz3jEUmfjCfcxWo=
+github.com/kamilturek/intranet-go v0.2.3-0.20220806094826-0895fc40b279/go.mod h1:g3O4gWN0lJhSe4PUEqwuHzmoLv0NesREQM1a9ryORkY=
+github.com/kamilturek/intranet-go v0.2.3 h1:oYrr6DlOllwKIVJyoU6fnjgQSNLIma1ABXgMVNKhads=
+github.com/kamilturek/intranet-go v0.2.3/go.mod h1:g3O4gWN0lJhSe4PUEqwuHzmoLv0NesREQM1a9ryORkY=
 github.com/kevinburke/ssh_config v0.0.0-20201106050909-4977a11b4351 h1:DowS9hvgyYSX4TO5NpyC606/Z4SxnNYbT+WX27or6Ck=
 github.com/kevinburke/ssh_config v0.0.0-20201106050909-4977a11b4351/go.mod h1:CT57kijsi8u/K/BOFA39wgDQJ9CxiF4nAY/ojJ6r6mM=
 github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxvqU3pZ+m/2kptfBszLMUkC4ZK/EgS/cQ=
